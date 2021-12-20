@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kiddo.webrtcdemo.activity.CallActivity;
+import com.kiddo.webrtcdemo.activity.CalledActivity;
 import com.kiddo.webrtcdemo.bean.UserInfo;
 import com.kiddo.webrtcdemo.cons.UrlCons;
 
@@ -120,7 +121,18 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public void connectWs(View view) {
+    public void enterCalled(View view) {
+        if (userIdET.getText().toString().length() == 0) {
+            Log.e(TAG, "userId cant be empty");
+            return;
+        }
+
+        Intent intent = new Intent(MainActivity.this, CalledActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("userId", userIdET.getText().toString());
+        bundle.putString("wsUrl", wsUrlET.getText().toString());
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     public void refreshUserList(View view) {

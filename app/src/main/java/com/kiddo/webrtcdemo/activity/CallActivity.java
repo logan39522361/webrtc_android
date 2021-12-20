@@ -65,9 +65,9 @@ public class CallActivity extends AppCompatActivity {
 
     EglBase.Context eglBaseContext;
 
-    String LOCAL_USER_ID = "xiaomi";
-    String RECEIVER_USER_ID = "logan_pc";
-    String WEBSOCKET_URL = "ws://10.20.57.75:9210/lesliebeijing";
+    String LOCAL_USER_ID = null;
+    String RECEIVER_USER_ID = null;
+    String WEBSOCKET_URL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

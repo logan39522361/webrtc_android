@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30px"
-        android:onClick="connectWs"
+        android:onClick="enterCalled"
         android:text="进入被呼叫页面" />
 
     <Button

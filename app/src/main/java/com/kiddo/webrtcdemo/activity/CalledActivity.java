@@ -57,9 +57,9 @@ public class CalledActivity extends AppCompatActivity {
 
     EglBase.Context eglBaseContext;
 
-    String LOCAL_USER_ID = "xiaomi";
-    String RECEIVER_USER_ID = "logan_pc";
-    String WEBSOCKET_URL = "ws://10.20.57.75:9210/lesliebeijing";
+    String LOCAL_USER_ID = null;
+    String RECEIVER_USER_ID = null;
+    String WEBSOCKET_URL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,6 @@ public class CalledActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         LOCAL_USER_ID = intent.getStringExtra("userId");
-        RECEIVER_USER_ID = intent.getStringExtra("toUserId");
         WEBSOCKET_URL = intent.getStringExtra("wsUrl");
 
         //mark step01
@@ -439,6 +438,8 @@ public class CalledActivity extends AppCompatActivity {
                 JSONObject msgObj = new JSONObject(text);
                 String event = msgObj.getString("event");
                 if ("sdp".equals(event)) {
+                    RECEIVER_USER_ID = msgObj.getString("sender");
+
                     String sdpType = msgObj.getString("type");
                     String sdpDescription = msgObj.getString("description");
                     if (sdpType.toLowerCase().equals("offer")) {
